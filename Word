@@ -1,1 +1,9 @@
-Add Stuff Here
+public class Word
+{
+ public Word()
+ {
+ 
+ }
+
+
+}
