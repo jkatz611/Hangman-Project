@@ -1,1 +1,7 @@
-COPY PASTE HERE
+public class LetterCheck{
+
+  public boolean inWord (char a) 
+  {
+    int location = word.indexOf("c");
+  }
+}
