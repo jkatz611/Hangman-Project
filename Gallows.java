@@ -8,7 +8,7 @@
 public class Gallows
 {
     // instance variables - replace the example below with your own
-    
+  
     public  Gallows(int switchy)
     { 
         switch (switchy) {
@@ -33,38 +33,7 @@ public class Gallows
                     break;
         }
     }
-    public void test(int switchy)
-    { 
-        
-            if (switchy == 1)
-            gall0();
-                    
-              if (switchy == 2)
-              gall1();
-                    
-              if (switchy == 3)
-              gall2();
-                    
-              if (switchy == 4)
-              gall3();
-                    
-             if (switchy == 5)
-             gall4();
-                    
-              if (switchy ==6)
-              gall5();
-                    
-              if (switchy == 7)
-              gall6();
-                    
-              if (switchy == 8)
-              gall7();
-                    
-             if (switchy == 9)
-             gall8();
-                    
-        
-    }
+  
     public void gall0()
     {
         System.out.println("\f==========|");
@@ -149,8 +118,8 @@ public class Gallows
     {
         System.out.println("\f==========|");
         System.out.println("| |       |");
-        System.out.println("| |\"Game\"\\O/");
-        System.out.println("| |\"Over\" |");
+        System.out.println("| |\"Game\" \u03C6");
+        System.out.println("| |\"Over\"/|\\");
         System.out.println("| |      / \\");
         System.out.println("| | __");
         System.out.println("| |___|");

@@ -35,7 +35,7 @@ public class Hangman2
     public void gallows ()
     {
         Gallows gallow = new Gallows(wrongGuesses);
-        System.out.println(gallow);
+        
     }
    public void solveWord(String x)
     {
