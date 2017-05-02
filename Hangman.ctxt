@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Hangman()
+comment1.params=x
+comment1.target=void\ letterCheck(char)
+comment2.params=x
+comment2.target=void\ letterUsed(char)
+comment3.params=
+comment3.target=void\ newGame()
+numComments=4

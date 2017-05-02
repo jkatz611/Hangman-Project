@@ -108,7 +108,7 @@ public class Gallows
     {
         System.out.println("\f==========|");
         System.out.println("| |       |");
-        System.out.println("| |\"Help\"\\O/");
+        System.out.println("| | Help \\O/");
         System.out.println("| |       |");
         System.out.println("| |      / \\");
         System.out.println("| | __");
@@ -118,8 +118,8 @@ public class Gallows
     {
         System.out.println("\f==========|");
         System.out.println("| |       |");
-        System.out.println("| |\"Game\" \u03C6");
-        System.out.println("| |\"Over\"/|\\");
+        System.out.println("| | Game  \u03C6");
+        System.out.println("| | Over /|\\");
         System.out.println("| |      / \\");
         System.out.println("| | __");
         System.out.println("| |___|");

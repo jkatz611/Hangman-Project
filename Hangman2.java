@@ -8,24 +8,34 @@ public class Hangman2
     String word;
     boolean[] guessed;
     int wrongGuesses = 0;
-    int maxGuesses = 10;
+    int maxGuesses = 9;
     boolean[] used = new boolean[91];
     String status;
-   
-    
-   
-   public Hangman2()
-    {
-        word = randWord();
+    int p1orp2;
+    String p2Word;
+    int solveSafety = 0;
+
+   public void gamesWord(String p2)
+   {
+        word = p2;
         guessed = new boolean[word.length()];
         
-        for(int i = 0; i < word.length(); i++)
-        {
-            guessed[i] = false;
-        }
+    }
+   public Hangman2()
+    {
+        
+        word = randWord();
+        
+        
+        if (word.contains(Character.toString(' ')))
+        wrongGuesses++; //weird fix for issue with words with spaces
+        guessed = new boolean[word.length()];
+        
+        Arrays.fill(guessed, false);
         letterCheck(' ');
         
     }
+    
     public String randWord ()
     {
         RandWord word = new RandWord();
@@ -39,8 +49,27 @@ public class Hangman2
     }
    public void solveWord(String x)
     {
+        x = x.toUpperCase();
         if (x.equals(word))
-        System.out.println(word);
+        {
+            for(int i = 0; i < word.length(); i++)
+            {
+                if(word.charAt(i) != 32 && word.charAt(i) != 39 && word.charAt(i) != 45)
+                {
+                    guessed[i] = true;
+                }
+                  
+                }
+                gallows();
+                printWord();
+            }
+        if (!(x.equals(word)))
+        {
+            System.out.println("That's the wrong answer!");
+            if (solveSafety > 1)
+            wrongGuesses++;
+            solveSafety++;
+        }
     }
     public void letterCheck(char x)
     {
@@ -55,17 +84,16 @@ public class Hangman2
                 {
                     guessed[i] = true;
                 }
-                 
-                    
+                
                 }
             if (!(word.contains(Character.toString(x))))
                 wrongGuesses++;
                 letterUsed(x);
+                gallows();
+                printWord();
+                printUsed();
         }
-        gallows();
-        System.out.print("\r");
-        printWord();
-        printUsed();
+        
     }
     
     public void printWord()
@@ -74,18 +102,25 @@ public class Hangman2
         {
             if(guessed[i])            
                 System.out.print(word.charAt(i) + " ");
+             
+            else if (word.charAt(i) == 32)
+                System.out.print(" ");
+           else if (word.charAt(i) == 45)
+                System.out.print("- ");
+            else if (word.charAt(i) == 39)
+                System.out.print("' ");
             else
                 System.out.print("_ ");
         }
     }
     
-    private void letterUsed (char x)
+    public void letterUsed (char x)
     {
        used[x] = true;
        
        
     }
-    private void printUsed ()
+    public void printUsed ()
     {
         System.out.println("");
         for (int i = 65; i < 91; i++)
@@ -94,8 +129,10 @@ public class Hangman2
            {
              char a = (char)i;
            System.out.print(a + " "); 
+           
         }
         }
+        System.out.println("");
     }
     private boolean usedCheck (char x)
     {
@@ -118,6 +155,12 @@ public class Hangman2
         {
             if (guessed[i])
                 count++;
+            if (word.charAt(i) == 32)
+                count++;
+            if (word.charAt(i) == 45)
+                count++;
+            if (word.charAt(i) == 39)
+            count++;
         }
         if (count == word.length())
             return 1; // win
